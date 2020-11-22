@@ -4,7 +4,7 @@ import PropTypes from 'prop-types';
 
 function Profile (props) {
   
-  return (
+    return (
     <div style={{margin:'auto', textAlign:'center'}}>
       <h1 style={{fontStyle:'italic'}}> Hello my name is {props.name} </h1>
       <h2>This is my story: {props.bio} </h2>
@@ -14,17 +14,22 @@ function Profile (props) {
         {props.children}
       </React.Fragment>
       <br />
-      <button onClick={()=> alert(props.name) }>What's my name?</button>    
+      <button onClick={()=> props.handleName() }>What's my name?</button>    
     </div>
   );
 }
 export default Profile;
 
 Profile.propTypes = {
-  name: PropTypes.string,
-  bio: PropTypes.string,
-  profession: PropTypes.string
+  user: PropTypes.shape({
+    name: PropTypes.string,
+    bio: PropTypes.string,
+    profession: PropTypes.string,
+    src: PropTypes.string,
+  }),
+  handleName: PropTypes.func,
 };
+
 
 Profile.defaultProps = {
   name: "Stranger",

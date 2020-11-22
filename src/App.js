@@ -10,9 +10,10 @@ const user={
 
 
 export default function App() {
+  const handleName = () => alert(user.name);
   return (
     <div>
-      <Profile name={user.name} bio={user.bio} profession={user.profession} src={user.src} />
+      <Profile name={user.name} bio={user.bio} profession={user.profession} src={user.src} handleName={handleName} />
     </div>
   );
 }
